@@ -1,0 +1,96 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\begin{document}
+
+\title{A Program to swap two numbers}
+\author{Vijay Satheesh}
+
+\maketitle
+
+\begin{abstract}
+    This program will swap two numbers and print it in the most memory-friendly manner.
+\end{abstract}
+
+%  \newpage
+
+%  \tableofcontents
+
+%  \newpage
+\lstset{language=C}
+\section{The Main Function}
+    This codeblock act as the main function and interfacing of the program.
+    \begin{lstlisting}
+    // main.c
+    #include <stdio.h>
+    #include "swaptwovars.h"
+    int main(int argc, char const *argv[])
+    {
+        int a,b;
+        printf("Enter two numbers (a,b): ");
+        scanf("%d,%d",&a,&b);
+        algswap(&a,&b);
+        printf("\n\na = %d , b = %d \n\n",a,b);
+        return 0;
+    }
+
+        \end{lstlisting}
+\section{The Header file}
+This header file contains the functions for algebraic swaping and swaping using temp variable;
+\begin{lstlisting}
+    // swaptwowars.h
+    void swapnum(int * a,int * b){ //Swap using temp variable
+        int temp;
+        temp = *a;
+        *a = *b;
+        *b = temp;
+    }
+
+    void algswap(int * a,int * b){ //Swap without using temp variable
+        *a = *a - *b;
+        *b = *a + *b;
+        *a = *b - *a;
+    }
+
+\end{lstlisting}
+
+\section{Running the code}
+The code can be compiled by the command
+\begin{lstlisting}
+    gcc main.c -o a.out
+\end{lstlisting}
+
+
+Then we can run the code by using the command 
+\begin{lstlisting}
+    ./a.out
+\end{lstlisting}
+\end{document}
+
+
+\end{document}
